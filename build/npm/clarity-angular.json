@@ -1,8 +1,6 @@
 {
-    "name": "clarity-angular",
+    "name": "u-clarity-angular",
     "version": "/* @echo VERSION */",
-    "description": "Angular components for Clarity",
-    "homepage": "https://vmware.github.io/clarity/",
     "main": "clarity-angular.umd.js",
     "module": "index.js",
     "repository" : {
@@ -24,7 +22,7 @@
         "prepublish": "echo 'Error: Please run \"npm run publish:clarity\" on the parent project' && exit 1"
     },
     //@endexclude
-    "author": "clarity",
+    "author": "caedman",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/vmware/clarity/issues"

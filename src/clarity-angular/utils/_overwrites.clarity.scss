@@ -191,7 +191,7 @@ $clr-table-smallpadding: null; // 0.5 * $clr-table-cellpadding;
 
 $clr-table-lineheightPaddingShim: null; // ($clr-baseline*1 - $clr-table-lineheight)/2;
 $clr-table-vertpadding: null; // (($clr-table-cellpadding - $clr-table-borderwidth) * 0.5) + $clr-table-lineheightPaddingShim; // have to account for border...
-
+$clr-form-icon-dim: $clr-icon-dimension-sm !default;
 // Border radius of corner cells needs to be slightly less than the table's,
 // To make sure they correctly cover the whole area up to the border.
 $clr-table-cornercellradius: null; // $clr-default-borderradius - 1;
@@ -234,7 +234,7 @@ $clr-login-icon-size: null; // $clr-icon-dimension-sm;
 $clr-padding-top-bottom: null; // $clr-baseline*0.125;
 $clr-padding-left-right: null; // $clr-baseline*0.5;
 
-$clr-label-colors: null; /* (
+$clr-label-colors: null; /* ($clr-form-icon-dim: $clr-icon-dimension-sm !default;
     gray: (
         background: $clr-gray,
         font: $clr-white
