@@ -151,6 +151,10 @@ $clr-tooltip-adjusted-margin: $margin-value + $arrow-width * 2 !default;
             width: $clr_baselineRem_5;
         }
 
+        &.tooltip-m > .tooltip-content {
+            width: $clr_baselineRem_6;
+        }
+
         &.tooltip-md > .tooltip-content {
             width: $clr-tooltip-default-width;
         }
