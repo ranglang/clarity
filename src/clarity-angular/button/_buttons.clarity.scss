@@ -45,6 +45,38 @@ $clr-global-button-properties-map: (
         checked-background-color: $greens-dark,
         checked-color: $clr-white
     ),
+    emphasis: (
+        background-color: rgb(241, 242,243),
+        border-color:  rgb(204, 204, 204),
+        color: rgb(48, 152, 224),
+        //$reds-light-midtone,
+        /*        hover-background-color: $reds-dark-midtone,
+                hover-color: $clr-white,*/
+        /*        active-box-shadow-color: $reds-dark,
+                active-box-shadow-width-top: 2px,*/
+        disabled-color: $gray-darker,
+        disabled-background-color: $gray-light-midtone,
+        disabled-border-color: $gray-light-midtone,
+        checked-color: $clr-white,
+        /*        checked-background-color: $reds-dark-midtone,
+                checked-color: $clr-white*/
+    ),
+    normal: (
+        background-color: rgb(241, 242,243),
+        border-color:  rgb(204, 204, 204),
+        //$reds-light-midtone,
+        color: rgb(112, 112, 112),
+/*        hover-background-color: $reds-dark-midtone,
+        hover-color: $clr-white,*/
+/*        active-box-shadow-color: $reds-dark,
+        active-box-shadow-width-top: 2px,*/
+        disabled-color: $gray-darker,
+        disabled-background-color: $gray-light-midtone,
+        disabled-border-color: $gray-light-midtone,
+        checked-color: $clr-white,
+/*        checked-background-color: $reds-dark-midtone,
+        checked-color: $clr-white*/
+    ),
     danger-light: (
         background-color: rgba(245,93,112,99),
         border-color: $reds-light-midtone,
@@ -302,6 +334,20 @@ $clr-button-appearance-map: (
     .btn-success .btn {
         @include populateButtonProperties(success);
     }
+
+    .btn.btn-normal,
+    .btn.btn-normal,
+    .btn-normal .btn,
+    .btn-normal .btn {
+        @include populateButtonProperties(normal);
+    }
+    .btn.btn-emphasis,
+    .btn.btn-emphasis,
+    .btn-emphasis .btn,
+    .btn-emphasis .btn {
+        @include populateButtonProperties(emphasis);
+    }
+
 
     .btn.btn-danger-light,
     .btn.btn-warning-light,
