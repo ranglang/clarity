@@ -45,6 +45,20 @@ $clr-global-button-properties-map: (
         checked-background-color: $greens-dark,
         checked-color: $clr-white
     ),
+    danger-light: (
+        background-color: rgba(245,93,112,99),
+        border-color: $reds-light-midtone,
+        color: $clr-white,
+        hover-background-color: $reds-dark-midtone,
+        hover-color: $clr-white,
+        active-box-shadow-color: $reds-dark,
+        active-box-shadow-width-top: 2px,
+        disabled-color: $gray-darker,
+        disabled-background-color: $gray-light-midtone,
+        disabled-border-color: $gray-light-midtone,
+        checked-background-color: $reds-dark-midtone,
+        checked-color: $clr-white
+    ),
     danger: (
         background-color: $reds-light-midtone,
         border-color: $reds-light-midtone,
@@ -287,6 +301,13 @@ $clr-button-appearance-map: (
     .btn.btn-success,
     .btn-success .btn {
         @include populateButtonProperties(success);
+    }
+
+    .btn.btn-danger-light,
+    .btn.btn-warning-light,
+    .btn-danger-light .btn,
+    .btn-warning-light .btn {
+        @include populateButtonProperties(danger-light);
     }
 
     .btn.btn-danger,

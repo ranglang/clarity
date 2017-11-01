@@ -63,8 +63,8 @@ $toggle-transition-animation: ease-in;
             background-color: $clr-gray;
             top: ($toggle-height - $toggle-switch-base-height) / 2;
             right: -1 * ($toggle-switch-base-width + $toggle-switch-base-left-spacing);
-            transition: $toggle-transition-time $toggle-transition-animation;
-            transition-property: border-color, background-color;
+            //transition: $toggle-transition-time $toggle-transition-animation;
+            //transition-property: border-color, background-color;
         }
 
         input[type="checkbox"]:focus + label::before {
@@ -74,8 +74,8 @@ $toggle-transition-animation: ease-in;
         input[type="checkbox"]:checked + label::before {
             border-color: clr-getColor(light-midtone, greens);
             background-color: clr-getColor(light-midtone, greens);
-            transition: $toggle-transition-time $toggle-transition-animation;
-            transition-property: border-color, background-color;
+            //transition: $toggle-transition-time $toggle-transition-animation;
+            //transition-property: border-color, background-color;
         }
 
         //Toggle Switch
@@ -90,12 +90,12 @@ $toggle-transition-animation: ease-in;
             background-color: clr-getColor(lightest);
             top: ($toggle-height - $toggle-switch-height) / 2;
             right: -1 * $toggle-switch-left-spacing;
-            transition: right $toggle-transition-time $toggle-transition-animation;
+            //transition: right $toggle-transition-time $toggle-transition-animation;
         }
 
         input[type="checkbox"]:checked + label::after {
             right: -1 * ($toggle-switch-base-width + $toggle-switch-base-left-spacing - 2px);
-            transition: right $toggle-transition-time $toggle-transition-animation;
+            //transition: right $toggle-transition-time $toggle-transition-animation;
         }
 
         &.disabled {

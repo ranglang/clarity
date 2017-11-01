@@ -1,6 +1,6 @@
 {
   "name": "clarity-all",
-  "version": "0.10.0-alpha.9",
+  "version": "0.10.0-alpha.12",
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.3.0",
@@ -76,7 +76,7 @@
   },
   "scripts": {
     "start": "gulp serve",
-    "build": "gulp build --prod && gulp karma",
+    "build": "gulp build --prod",
     "build:dev": "gulp build",
     "test": "gulp test",
     "test:watch": "gulp test:watch",

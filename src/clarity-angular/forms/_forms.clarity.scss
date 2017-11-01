@@ -30,7 +30,8 @@
     &.required {
         &:after {
             content: '*';
-            font-size: 1.1em;
+            font-size: 1.4em;
+            vertical-align: text-top;
             color: $clr-red;
             margin-left: $clr_baselineRem_0_25;
         }
@@ -94,7 +95,7 @@
             &.row > [class*='col-'] > span {
                 color: $clr-black;
 
-                @include generate-required-indicator();
+                //@include generate-required-indicator();
             }
 
             .form-control {
