@@ -45,22 +45,25 @@ $clr-global-button-properties-map: (
         checked-background-color: $greens-dark,
         checked-color: $clr-white
     ),
-    emphasis: (
+    emphasis-green: (
         background-color: rgb(241, 242,243),
         border-color:  rgb(204, 204, 204),
-        color: rgb(48, 152, 224),
-        //$reds-light-midtone,
-        /*        hover-background-color: $reds-dark-midtone,
-                hover-color: $clr-white,*/
-        /*        active-box-shadow-color: $reds-dark,
-                active-box-shadow-width-top: 2px,*/
+        color: rgb(25, 195, 87),
         disabled-color: $gray-darker,
         disabled-background-color: $gray-light-midtone,
         disabled-border-color: $gray-light-midtone,
         checked-color: $clr-white,
-        /*        checked-background-color: $reds-dark-midtone,
-                checked-color: $clr-white*/
     ),
+    emphasis: (
+        background-color: rgb(241, 242,243),
+        border-color:  rgb(204, 204, 204),
+        color: rgb(48, 152, 224),
+        disabled-color: $gray-darker,
+        disabled-background-color: $gray-light-midtone,
+        disabled-border-color: $gray-light-midtone,
+        checked-color: $clr-white,
+    ),
+
     normal: (
         background-color: rgb(241, 242,243),
         border-color:  rgb(204, 204, 204),
@@ -103,6 +106,20 @@ $clr-global-button-properties-map: (
         disabled-background-color: $gray-light-midtone,
         disabled-border-color: $gray-light-midtone,
         checked-background-color: $reds-dark-midtone,
+        checked-color: $clr-white
+    ),
+    outline-cancel: (
+        background-color: transparent,
+        border-color: rgb(189, 189,189),
+        color: rgb(249, 123, 55),
+/*        hover-background-color: $greens-lightest,
+        hover-color: $greens-darker,*/
+        active-box-shadow-color: rgb(249, 123,55),
+        active-box-shadow-width-top: 1px,
+        disabled-color: $gray-darker,
+        disabled-background-color: transparent,
+        disabled-border-color: $gray-dark,
+        checked-background-color: rgb(249, 123,55),
         checked-color: $clr-white
     ),
     outline-success: (
@@ -341,6 +358,15 @@ $clr-button-appearance-map: (
     .btn-normal .btn {
         @include populateButtonProperties(normal);
     }
+
+
+    .btn.btn-emphasis-green,
+    .btn.btn-emphasis-green,
+    .btn-emphasis-green .btn,
+    .btn-emphasis-green .btn {
+        @include populateButtonProperties(emphasis-green);
+    }
+
     .btn.btn-emphasis,
     .btn.btn-emphasis,
     .btn-emphasis .btn,
@@ -368,6 +394,13 @@ $clr-button-appearance-map: (
     .btn-success-outline .btn,
     .btn-outline-success .btn {
         @include populateButtonProperties(outline-success);
+    }
+
+    .btn.btn-cancel-outline,
+    .btn.btn-cancel-success,
+    .btn-cancel-outline .btn,
+    .btn-outline-cancel .btn {
+        @include populateButtonProperties(outline-cancel);
     }
 
     .btn.btn-danger-outline,
@@ -509,6 +542,11 @@ $clr-button-appearance-map: (
         &.btn-danger,
         &.btn-warning {
             @include btn-checked-styles(danger);
+        }
+
+        &.btn-success-outline,
+        &.btn-outline-success {
+            @include btn-checked-styles(outline-cancel);
         }
 
         &.btn-success-outline,
