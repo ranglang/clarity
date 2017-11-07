@@ -3,8 +3,8 @@
  * This software is released under MIT license.
  * The full license information can be found in LICENSE in the root directory of this project.
  */
-import {Component, Input, Output, forwardRef, EventEmitter} from "@angular/core";
-import {NG_VALUE_ACCESSOR, ControlValueAccessor} from "@angular/forms";
+import {Component, EventEmitter, forwardRef, Input, Output} from "@angular/core";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 /**
  * Private counter to generate unique IDs for the checkboxes, to bind the labels to them.
@@ -32,21 +32,13 @@ let latestId = 0;
             <ng-content></ng-content>
         </label>
     `,
-    host: {
-        "[class.checkbox]": "!inline",
-        "[class.checkbox-inline]": "inline",
-        "[class.disabled]": "disabled"
-    },
+    host: {"[class.checkbox]": "!inline", "[class.checkbox-inline]": "inline", "[class.disabled]": "disabled"},
     /*
      * This provider lets us declare our checkbox as a ControlValueAccessor,
      * which allows us to use [(ngModel)] directly on our component,
      * with all the automatic features wiring that come with it.
      */
-    providers: [{
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => Checkbox),
-        multi: true
-    }]
+    providers: [{provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => Checkbox), multi: true}]
 })
 export class Checkbox implements ControlValueAccessor {
     // If our host has an ID attribute, we use this instead of our index.
@@ -58,12 +50,10 @@ export class Checkbox implements ControlValueAccessor {
     }
 
     // If our host has a name attribute, we apply it to the checkbox.
-    @Input("name")
-    public name: string = null;
+    @Input("name") public name: string = null;
 
     // If the host is disabled we apply it to the checkbox
-    @Input("clrDisabled")
-    public disabled: boolean = false;
+    @Input("clrDisabled") public disabled: boolean = false;
 
     // Support for inline checkboxes, adds the necessary class to the host
     @Input("clrInline") public inline = false;
@@ -76,7 +66,9 @@ export class Checkbox implements ControlValueAccessor {
 
     @Input("clrChecked")
     public set checked(value: boolean) {
+        console.log("set checked clrChecked: " + value);
         if (value !== this._checked) {
+            console.log("value !== this._checked");
             if (this._indeterminate) {
                 this.setIndeterminate(false);
             }
@@ -94,6 +86,7 @@ export class Checkbox implements ControlValueAccessor {
     public set indeterminate(value: boolean) {
         if (this._indeterminate !== value) {
             if (this._checked) {
+                console.log("indeterminate set check false" );
                 this.setChecked(false);
             }
             this.setIndeterminate(value);
@@ -111,12 +104,17 @@ export class Checkbox implements ControlValueAccessor {
     private setChecked(value: boolean) {
         this._checked = value;
         this.change.emit(this._checked);
+
     }
 
-    @Output("clrCheckedChange")
-    public change = new EventEmitter<boolean>(false);
+    @Output("clrCheckedChange") public change = new EventEmitter<boolean>(false);
+
+    @Output("onCheckChange") public change1 = new EventEmitter<boolean>();
 
     public toggle() {
+
+        console.log("previous: " + this.checked);
+        this.change1.emit(!this.checked);
         this.checked = !this.checked;
         this.onChangeCallback(this.checked);
     }
@@ -134,15 +132,13 @@ export class Checkbox implements ControlValueAccessor {
      * These callbacks will be given to us through the ControlValueAccessor interface,
      * and we need to call them when the user interacts with the checkbox.
      */
-    private onChangeCallback = (_: any) => {
-    }
+    private onChangeCallback = (_: any) => {};
 
     registerOnChange(onChange: any): void {
         this.onChangeCallback = onChange;
     }
 
-    private onTouchedCallback = () => {
-    }
+    private onTouchedCallback = () => {};
 
     registerOnTouched(onTouched: any): void {
         this.onTouchedCallback = onTouched;
