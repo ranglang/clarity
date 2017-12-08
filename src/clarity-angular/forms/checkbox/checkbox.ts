@@ -66,9 +66,7 @@ export class Checkbox implements ControlValueAccessor {
 
     @Input("clrChecked")
     public set checked(value: boolean) {
-        console.log("set checked clrChecked: " + value);
         if (value !== this._checked) {
-            console.log("value !== this._checked");
             if (this._indeterminate) {
                 this.setIndeterminate(false);
             }
@@ -86,7 +84,6 @@ export class Checkbox implements ControlValueAccessor {
     public set indeterminate(value: boolean) {
         if (this._indeterminate !== value) {
             if (this._checked) {
-                console.log("indeterminate set check false" );
                 this.setChecked(false);
             }
             this.setIndeterminate(value);
@@ -113,7 +110,6 @@ export class Checkbox implements ControlValueAccessor {
 
     public toggle() {
 
-        console.log("previous: " + this.checked);
         this.change1.emit(!this.checked);
         this.checked = !this.checked;
         this.onChangeCallback(this.checked);

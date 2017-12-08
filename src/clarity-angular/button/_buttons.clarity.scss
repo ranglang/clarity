@@ -77,8 +77,6 @@ $clr-global-button-properties-map: (
         disabled-background-color: $gray-light-midtone,
         disabled-border-color: $gray-light-midtone,
         checked-color: $clr-white,
-/*        checked-background-color: $reds-dark-midtone,
-        checked-color: $clr-white*/
     ),
     danger-light: (
         background-color: rgba(245,93,112,99),
@@ -182,13 +180,25 @@ $clr-global-button-properties-map: (
 
 //Button Variables
 $clr-button-horizontal-padding: $clr_baselineRem_0_5 !default;
+$clr-button-rounded-padding: $clr_baselineRem_0_72 !default;
+
 $clr-button-height: $clr_baselineRem_1_5 !default;
 $clr-button-height-sm: $clr_baselineRem_1 !default;
 $clr-button-height-m: $clr_baselineRem_1_25 !default;
 $clr-button-padding: 0 $clr-button-horizontal-padding !default;
 
+$clr-button-padding-bg: 0 $clr-button-horizontal-padding !default;
+
 //Call to Action & Standard Button Appearance
 $clr-button-appearance-map: (
+    rounded: (
+        line-height: $clr-button-height-m - 1,
+        letter-spacing: 0.073em,
+        font-size: rem(14/$clr-rem-denominator),
+        font-weight: 500,
+        height: $clr-button-height-m,
+        padding: 0 $clr-button-rounded-padding,
+    ),
     udian: (
         line-height: $clr-button-height-m - 1,
         letter-spacing: 0.073em,
@@ -279,6 +289,17 @@ $clr-button-appearance-map: (
     }
 }
 
+@mixin btn-rounded-border-styles() {
+    border-radius: $clr-rounded-borderradius;
+    //$clr-default-borderradius;
+    border: 1px solid;
+}
+
+@mixin btn-default-border-styles() {
+    border-radius: $clr-default-borderradius;
+    border: 1px solid;
+}
+
 @mixin btn-default-border-styles() {
     border-radius: $clr-default-borderradius;
     border: 1px solid;
@@ -341,6 +362,19 @@ $clr-button-appearance-map: (
     .btn-outline-info .btn {
         @include populateButtonProperties(default);
     }
+
+    .btn.btn-rounded,
+    .btn-rounded .btn {
+        @include btn-rounded-border-styles();
+        @include clr-getStylesFromMap($clr-button-appearance-map, rounded);
+    }
+
+    //.btn.btn-rounded,
+    //.btn.btn-rounded,
+    //.btn-rounded .btn,
+    //.btn-rounded .btn {
+    //    @include btn-rounded-border-styles()
+    //}
 
     .btn.btn-primary,
     .btn-primary .btn {

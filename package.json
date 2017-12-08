@@ -1,6 +1,6 @@
 {
   "name": "clarity-all",
-  "version": "0.10.0-alpha.20",
+  "version": "0.10.0-alpha.21",
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.3.0",
@@ -79,6 +79,7 @@
     "build": "gulp build --prod",
     "build:dev": "gulp build",
     "test": "gulp test",
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json",
     "test:watch": "gulp test:watch",
     "prepublish:all": "gulp npm:prepare --version $npm_package_version",
     "publish:all": "npm publish dist/npm/clarity-angular;",

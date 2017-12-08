@@ -3,7 +3,8 @@
 // The full license information can be found in LICENSE in the root directory of this project.
 
 @mixin disabled-form-fields() {
-    opacity: 0.5;
+    color: rgb(150, 150, 150);
+    //opacity: 0.5;
     cursor: not-allowed;
 }
 
